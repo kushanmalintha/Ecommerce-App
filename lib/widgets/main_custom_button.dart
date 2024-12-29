@@ -6,8 +6,8 @@ class CustomMainButton extends StatelessWidget {
   final Color textColor;
   final Function onPressed;
   final double borderRadius;
-  // ignore: prefer_typing_uninitialized_variables
-  final width;
+  final double width;
+  final double fontSize;
 
   const CustomMainButton(
       {super.key,
@@ -16,6 +16,7 @@ class CustomMainButton extends StatelessWidget {
       required this.textColor,
       required this.onPressed,
       required this.borderRadius,
+      this.fontSize = 16.0,
       this.width = double.infinity});
 
   @override
@@ -32,8 +33,8 @@ class CustomMainButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 14.0),
         child: Text(
           text,
-          style: const TextStyle(
-            fontSize: 16.0,
+          style: TextStyle(
+            fontSize: fontSize,
             fontWeight: FontWeight.bold,
           ),
         ),

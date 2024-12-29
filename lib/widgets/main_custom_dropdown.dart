@@ -17,7 +17,7 @@ class CustomDropdown extends StatelessWidget {
     required this.backgroundColor,
     required this.textColor,
     required this.onChanged,
-    required this.hintText,
+    this.hintText = '',
     required this.borderRadius,
     this.width = double.infinity,
   });

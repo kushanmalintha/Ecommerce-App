@@ -5,6 +5,7 @@ class CustomMainTextField extends StatefulWidget {
   final Color baseColor;
   final Color fieldColor;
   final TextInputType inputType;
+  final int radius;
 
   const CustomMainTextField({
     super.key,
@@ -12,6 +13,7 @@ class CustomMainTextField extends StatefulWidget {
     required this.baseColor,
     required this.fieldColor,
     this.inputType = TextInputType.text,
+    this.radius = 0,
   });
 
   @override
@@ -34,7 +36,7 @@ class _CustomTextFieldState extends State<CustomMainTextField> {
             hintStyle: TextStyle(
               color: widget.baseColor,
               fontFamily: "Montserrat",
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.bold,
             ),
             border: InputBorder.none,
             hintText: widget.hint,

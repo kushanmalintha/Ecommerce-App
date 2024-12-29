@@ -5,13 +5,15 @@ class CustomRoundButton extends StatelessWidget {
   final Icon icon;
   final Color color;
   final VoidCallback onPressed;
+  final ImageProvider? image;
 
   const CustomRoundButton({
     super.key,
     required this.radius,
-    required this.icon,
+    this.icon = const Icon(Icons.arrow_back),
     required this.color,
     required this.onPressed,
+    this.image,
   });
 
   @override
@@ -23,7 +25,19 @@ class CustomRoundButton extends StatelessWidget {
         onPressed: onPressed,
         color: color,
         shape: const CircleBorder(),
-        child: icon,
+        padding: EdgeInsets.zero,
+        child: ClipOval(
+          child: SizedBox(
+            width: radius * 2,
+            height: radius * 2,
+            child: image != null
+                ? Image(
+                    image: image!,
+                    fit: BoxFit.cover,
+                  )
+                : icon,
+          ),
+        ),
       ),
     );
   }

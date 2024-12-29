@@ -20,3 +20,12 @@ flutter:
 
   assets:
     - assets/send-data.png
+    - assets/face.jpg
+    - assets/bag.png
+    - assets/hoodie.png
+    - assets/shirt.png
+    - assets/shoe.png
+    - assets/short.png
+    - assets/trouser.png
+    - assets/bell.png
+    - assets/cart.png
