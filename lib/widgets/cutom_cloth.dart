@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
-class CustomBox extends StatefulWidget {
+class CustomClothBox extends StatefulWidget {
   final String imagePath;
   final String productName;
   final String price;
   final VoidCallback onButtonPressed;
+  final bool showIconButton;
 
-  const CustomBox({
+  const CustomClothBox({
     super.key,
     required this.imagePath,
-    required this.productName,
-    required this.price,
+    this.productName = '',
+    this.price = '',
     required this.onButtonPressed,
+    this.showIconButton = true,
   });
 
   @override
   // ignore: library_private_types_in_public_api
-  _CustomBoxState createState() => _CustomBoxState();
+  _CustomClothBoxState createState() => _CustomClothBoxState();
 }
 
-class _CustomBoxState extends State<CustomBox> {
+class _CustomClothBoxState extends State<CustomClothBox> {
   bool isFavorite = false;
 
   void toggleFavorite() {
@@ -34,7 +36,7 @@ class _CustomBoxState extends State<CustomBox> {
       onTap: widget.onButtonPressed,
       child: Container(
         width: 175,
-        height: 300,
+        height: 320,
         padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
           color: Colors.grey[200]!,

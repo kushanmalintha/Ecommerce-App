@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
+import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
 class NoNotificationScreen extends StatefulWidget {
@@ -18,22 +19,24 @@ class _NoNotificationScreenState extends State<NoNotificationScreen> {
         child: Column(
           children: [
             const SizedBox(height: 40),
-            const Row(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                    child: Text(
-                  'Notifications',
-                  textAlign: TextAlign.center,
+                RoundCustomButton(
+                  radius: 25,
+                  color: Colors.grey[200]!,
+                  onPressed: () {},
+                ),
+                const Text(
+                  'Notification',
                   style: TextStyle(
-                    color: Colors.black,
                     fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w900,
                   ),
-                ))
+                ),
               ],
             ),
-            const SizedBox(height: 250),
+            const SizedBox(height: 200),
             Container(
               height: 100,
               width: 100,
@@ -65,7 +68,7 @@ class _NoNotificationScreenState extends State<NoNotificationScreen> {
             const SizedBox(height: 20),
             SizedBox(
               width: 150,
-              child: CustomMainButton(
+              child: BoxCustomButton(
                 text: "Explore Categories",
                 backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
                 textColor: Colors.white,

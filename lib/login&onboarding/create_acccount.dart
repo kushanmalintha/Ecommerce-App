@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
-import 'package:ecommerce_app/widgets/main_custom_textfield.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
+import 'package:ecommerce_app/widgets/custom_textfield.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             const SizedBox(height: 60),
             Container(
               alignment: Alignment.topLeft,
-              child: CustomRoundButton(
+              child: RoundCustomButton(
                 radius: 25,
                 icon: const Icon(
                   Icons.arrow_back,
@@ -49,35 +49,35 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ],
             ),
             const SizedBox(height: 30),
-            CustomMainTextField(
+            CustomTextField(
               baseColor: Colors.grey[800]!,
               fieldColor: Colors.grey[200]!,
               hint: "First Name",
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
-            CustomMainTextField(
+            CustomTextField(
               baseColor: Colors.grey[800]!,
               fieldColor: Colors.grey[200]!,
               hint: "Last Name",
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
-            CustomMainTextField(
+            CustomTextField(
               baseColor: Colors.grey[800]!,
               fieldColor: Colors.grey[200]!,
               hint: "Email Address",
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
-            CustomMainTextField(
+            CustomTextField(
               baseColor: Colors.grey[800]!,
               fieldColor: Colors.grey[200]!,
               hint: "Password",
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 50),
-            CustomMainButton(
+            BoxCustomButton(
               text: "Continue",
               backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
               textColor: Colors.white,

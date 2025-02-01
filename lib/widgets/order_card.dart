@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 
 class OrderCard extends StatelessWidget {
   final int orderNo;
-  final int itemCount;
+  final String orderStates;
+  final String date;
   final VoidCallback? onTap;
   final Color cardColor;
+  final Icon? icon;
+  final bool displayOrderNo;
 
-  const OrderCard({
-    super.key,
-    required this.orderNo,
-    required this.itemCount,
-    this.onTap,
-    this.cardColor = Colors.white,
-  });
+  const OrderCard(
+      {super.key,
+      this.orderNo = 0,
+      this.orderStates = '',
+      this.date = '',
+      this.onTap,
+      this.cardColor = Colors.white,
+      this.icon,
+      this.displayOrderNo = true});
 
   @override
   Widget build(BuildContext context) {
@@ -35,29 +40,29 @@ class OrderCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.shopping_cart,
-              size: 30,
-              color: Color.fromRGBO(142, 108, 239, 1),
-            ),
+            icon ??
+                const Icon(
+                  Icons.shopping_cart,
+                  size: 30,
+                  color: Color.fromRGBO(142, 108, 239, 1),
+                ),
             const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Order #$orderNo",
+                  displayOrderNo ? "Order #$orderNo" : orderStates,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
                 ),
-                const SizedBox(height: 4),
                 Text(
-                  "$itemCount items",
+                  displayOrderNo ? "" : date,
                   style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.black54,
+                    fontSize: 12,
+                    color: Colors.black,
                   ),
                 ),
               ],

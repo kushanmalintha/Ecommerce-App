@@ -10,8 +10,12 @@ import 'package:ecommerce_app/login&onboarding/sign_in_pwd.dart';
 import 'package:ecommerce_app/login&onboarding/splash.dart';
 import 'package:ecommerce_app/notification_page/no_notification.dart';
 import 'package:ecommerce_app/notification_page/with_notification.dart';
+import 'package:ecommerce_app/orders_page/inside_order.dart';
 import 'package:ecommerce_app/orders_page/no_order.dart';
 import 'package:ecommerce_app/orders_page/with_order.dart';
+import 'package:ecommerce_app/product_page/cart_empty.dart';
+import 'package:ecommerce_app/product_page/cart_full.dart';
+import 'package:ecommerce_app/product_page/product_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -141,6 +145,34 @@ class MainScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const WithOrderScreen())),
                 child: const Text('With order Screen'),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InsideOrderScreen())),
+                child: const Text('Inside order Screen'),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProductScreen())),
+                child: const Text('Product Screen'),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CartEmptyScreen())),
+                child: const Text('Cart Empty Screen'),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CartFullScreen())),
+                child: const Text('Cart Full Screen'),
               ),
             ],
           ),

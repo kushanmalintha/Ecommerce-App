@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/widgets/custome_search.dart';
-import 'package:ecommerce_app/widgets/main_cutom_cloth.dart';
+import 'package:ecommerce_app/widgets/custom_search.dart';
+import 'package:ecommerce_app/widgets/cutom_cloth.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +41,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CustomRoundButton(
+                  RoundCustomButton(
                     radius: 20,
                     icon: const Icon(
                       Icons.arrow_back,
@@ -89,7 +89,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CustomBox(
+                        CustomClothBox(
                           imagePath: imagePaths[firstIndex],
                           productName: titles[firstIndex],
                           price: '\$148.00',
@@ -97,7 +97,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                         ),
                         if (secondIndex <
                             titles.length) // Check if there is a second item
-                          CustomBox(
+                          CustomClothBox(
                             imagePath: imagePaths[secondIndex],
                             productName: titles[secondIndex],
                             price: '\$148.00',

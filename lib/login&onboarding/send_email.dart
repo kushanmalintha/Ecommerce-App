@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SendEmailScreen extends StatefulWidget {
@@ -49,7 +49,7 @@ class _SendEmailScreenState extends State<SendEmailScreen> {
             const SizedBox(height: 20),
             SizedBox(
               width: 150,
-              child: CustomMainButton(
+              child: BoxCustomButton(
                 text: "Return to Login",
                 backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
                 textColor: Colors.white,

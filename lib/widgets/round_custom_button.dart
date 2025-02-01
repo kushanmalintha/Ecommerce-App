@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomRoundButton extends StatelessWidget {
+class RoundCustomButton extends StatelessWidget {
   final double radius;
   final Icon icon;
   final Color color;
   final VoidCallback onPressed;
   final ImageProvider? image;
 
-  const CustomRoundButton({
+  const RoundCustomButton({
     super.key,
     required this.radius,
     this.icon = const Icon(Icons.arrow_back),

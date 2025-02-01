@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
-import 'package:ecommerce_app/widgets/main_custom_textfield.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
+import 'package:ecommerce_app/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class SignInPwdScreen extends StatefulWidget {
@@ -34,14 +34,14 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
               ],
             ),
             const SizedBox(height: 30),
-            CustomMainTextField(
+            CustomTextField(
               baseColor: Colors.grey[800]!,
               fieldColor: Colors.grey[200]!,
               hint: "Password",
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
-            CustomMainButton(
+            BoxCustomButton(
               text: "Continue",
               backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
               textColor: Colors.white,

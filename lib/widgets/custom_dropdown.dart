@@ -49,7 +49,7 @@ class CustomDropdown extends StatelessWidget {
               value: item,
               child: Text(
                 item,
-                style: TextStyle(color: textColor, fontSize: 16.0),
+                style: TextStyle(color: textColor, fontSize: 18.0),
               ),
             );
           }).toList(),

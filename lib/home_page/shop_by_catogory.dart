@@ -38,7 +38,7 @@ class _ShopByCategoryScreenState extends State<ShopByCategoryScreen> {
             const SizedBox(height: 60),
             Container(
               alignment: Alignment.topLeft,
-              child: CustomRoundButton(
+              child: RoundCustomButton(
                 radius: 25,
                 icon: const Icon(
                   Icons.arrow_back,

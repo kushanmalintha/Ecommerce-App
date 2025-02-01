@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/widgets/custome_search.dart';
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
-import 'package:ecommerce_app/widgets/main_custom_dropdown.dart';
-import 'package:ecommerce_app/widgets/main_cutom_cloth.dart';
+import 'package:ecommerce_app/widgets/custom_search.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
+import 'package:ecommerce_app/widgets/custom_dropdown.dart';
+import 'package:ecommerce_app/widgets/cutom_cloth.dart';
 import 'package:ecommerce_app/widgets/navigation_bar.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomRoundButton(
+                  RoundCustomButton(
                     radius: 25,
                     color: Colors.grey,
                     onPressed: () {},
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: 25.0,
                     ),
                   ),
-                  CustomRoundButton(
+                  RoundCustomButton(
                     radius: 25,
                     color: const Color.fromRGBO(142, 108, 239, 100),
                     onPressed: () {},
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(
                     width: 100,
-                    child: CustomMainButton(
+                    child: BoxCustomButton(
                       text: 'See all',
                       backgroundColor: Colors.white,
                       textColor: Colors.black54,
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Column(
                         children: [
-                          CustomRoundButton(
+                          RoundCustomButton(
                             radius: 35,
                             color: Colors.grey[200]!,
                             onPressed: () {},
@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(
                     width: 100,
-                    child: CustomMainButton(
+                    child: BoxCustomButton(
                       text: 'See all',
                       backgroundColor: Colors.white,
                       textColor: Colors.black54,
@@ -165,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Column(
                         children: [
-                          CustomBox(
+                          CustomClothBox(
                             imagePath: imagePaths[index],
                             productName: titles[index],
                             price: "\$148.00",
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(
                     width: 100,
-                    child: CustomMainButton(
+                    child: BoxCustomButton(
                       text: 'See all',
                       backgroundColor: Colors.white,
                       textColor: Colors.black54,
@@ -209,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Column(
                         children: [
-                          CustomBox(
+                          CustomClothBox(
                             imagePath: imagePaths[index],
                             productName: titles[index],
                             price: "\$148.00",

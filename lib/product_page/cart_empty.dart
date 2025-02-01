@@ -2,14 +2,14 @@ import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
-class NoOrderScreen extends StatefulWidget {
-  const NoOrderScreen({super.key});
+class CartEmptyScreen extends StatefulWidget {
+  const CartEmptyScreen({super.key});
 
   @override
-  State<NoOrderScreen> createState() => _NoOrderScreenState();
+  State<CartEmptyScreen> createState() => _CartEmptyScreenState();
 }
 
-class _NoOrderScreenState extends State<NoOrderScreen> {
+class _CartEmptyScreenState extends State<CartEmptyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -28,7 +28,7 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
                   onPressed: () {},
                 ),
                 const Text(
-                  'Order',
+                  'Cart',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w900,
@@ -42,7 +42,7 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
               width: 100,
               alignment: Alignment.center,
               child: Image.asset(
-                'assets/cart.png',
+                'assets/basket.png',
                 fit: BoxFit.contain,
               ),
             ),
@@ -51,7 +51,7 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
               children: [
                 Expanded(
                   child: Text(
-                    'No Oreders yet.',
+                    'Your Cart is Empty',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,

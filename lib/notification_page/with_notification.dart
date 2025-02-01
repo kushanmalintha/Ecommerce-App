@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/widgets/notification_card.dart';
+import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
 class WithNotificationScreen extends StatefulWidget {
@@ -25,18 +26,19 @@ class _WithNotificationScreenState extends State<WithNotificationScreen> {
         child: Column(
           children: [
             const SizedBox(height: 40),
-            const Row(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    'Notifications',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat',
-                    ),
+                RoundCustomButton(
+                  radius: 25,
+                  color: Colors.grey[200]!,
+                  onPressed: () {},
+                ),
+                const Text(
+                  'Notofication',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ],

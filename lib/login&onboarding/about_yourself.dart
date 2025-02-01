@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
-import 'package:ecommerce_app/widgets/main_custom_dropdown.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
+import 'package:ecommerce_app/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 
 class AboutYourselfScreen extends StatefulWidget {
@@ -49,7 +49,7 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                 children: [
                   SizedBox(
                     width: 150,
-                    child: CustomMainButton(
+                    child: BoxCustomButton(
                       text: "Men",
                       backgroundColor: const Color.fromRGBO(142, 108, 239, 1),
                       textColor: Colors.white,
@@ -62,7 +62,7 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                   const SizedBox(width: 20),
                   SizedBox(
                     width: 150,
-                    child: CustomMainButton(
+                    child: BoxCustomButton(
                       text: "Women",
                       backgroundColor: Colors.grey[200]!,
                       textColor: Colors.black,
@@ -99,7 +99,7 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                 borderRadius: 25.0,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.4),
-              CustomMainButton(
+              BoxCustomButton(
                 text: "Finish",
                 backgroundColor: const Color.fromRGBO(142, 108, 239, 1),
                 textColor: Colors.white,

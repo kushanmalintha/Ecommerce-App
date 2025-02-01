@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/widgets/main_custom_button.dart';
-import 'package:ecommerce_app/widgets/main_custom_textfield.dart';
+import 'package:ecommerce_app/widgets/box_custom_button.dart';
+import 'package:ecommerce_app/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class SignInEmailScreen extends StatefulWidget {
@@ -34,14 +34,14 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               ],
             ),
             const SizedBox(height: 30),
-            CustomMainTextField(
+            CustomTextField(
               baseColor: Colors.grey[800]!,
               fieldColor: Colors.grey[200]!,
               hint: "E-mail Address",
               inputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
-            CustomMainButton(
+            BoxCustomButton(
               text: "Sign In",
               backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
               textColor: Colors.white,
@@ -66,7 +66,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               ],
             ),
             const SizedBox(height: 60),
-            CustomMainButton(
+            BoxCustomButton(
               text: "Continue With Apple",
               backgroundColor: Colors.grey[200]!,
               textColor: Colors.black,
@@ -76,7 +76,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               borderRadius: 25.0,
             ),
             const SizedBox(height: 10),
-            CustomMainButton(
+            BoxCustomButton(
               text: "Continue With Google",
               backgroundColor: Colors.grey[200]!,
               textColor: Colors.black,
@@ -86,7 +86,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               borderRadius: 25.0,
             ),
             const SizedBox(height: 10),
-            CustomMainButton(
+            BoxCustomButton(
               text: "Continue With Facebook",
               backgroundColor: Colors.grey[200]!,
               textColor: Colors.black,

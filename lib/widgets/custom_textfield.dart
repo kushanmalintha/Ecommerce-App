@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomMainTextField extends StatefulWidget {
+class CustomTextField extends StatefulWidget {
   final String hint;
   final Color baseColor;
   final Color fieldColor;
   final TextInputType inputType;
   final int radius;
 
-  const CustomMainTextField({
+  const CustomTextField({
     super.key,
     required this.hint,
     required this.baseColor,
@@ -21,7 +21,7 @@ class CustomMainTextField extends StatefulWidget {
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomMainTextField> {
+class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Card(
