@@ -27,7 +27,6 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                     color: Colors.black,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Montserrat',
                     decoration: TextDecoration.none,
                   ),
                 ),
@@ -35,14 +34,15 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             ),
             const SizedBox(height: 30),
             CustomTextField(
-              baseColor: Colors.grey[800]!,
+              baseColor: Colors.grey,
               fieldColor: Colors.grey[200]!,
               hint: "E-mail Address",
               inputType: TextInputType.emailAddress,
+              radius: 20,
             ),
             const SizedBox(height: 10),
             BoxCustomButton(
-              text: "Sign In",
+              text: "Continue",
               backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
               textColor: Colors.white,
               onPressed: () {
@@ -59,7 +59,6 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                     color: Colors.black,
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Montserrat',
                     decoration: TextDecoration.none,
                   ),
                 ),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
-  final String description;
   final String imagePath;
+  final int textCount;
+  final List<String>? texts;
 
-  const CustomBox({super.key, this.description = '', this.imagePath = ''});
+  const CustomBox({
+    super.key,
+    this.imagePath = '',
+    this.textCount = 1,
+    this.texts,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +31,28 @@ class CustomBox extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          if (description.isNotEmpty)
-            Expanded(
-              child: Text(
-                description,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontFamily: 'Montserrat',
-                ),
+          if (imagePath.isNotEmpty)
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                imagePath,
+                width: 50,
+                height: 50,
+                fit: BoxFit.cover,
               ),
             ),
-          if (imagePath.isNotEmpty)
-            Image.asset(imagePath, height: 200, width: 150, fit: BoxFit.cover),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: List.generate(textCount, (index) {
+                return Text(
+                  texts != null && texts!.length > index ? texts![index] : '',
+                  style: const TextStyle(fontSize: 16),
+                );
+              }),
+            ),
+          ),
         ],
       ),
     );

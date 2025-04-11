@@ -72,7 +72,7 @@ class _InsideOrderScreenState extends State<InsideOrderScreen> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
-              const CustomBox(description: 'Blue color size 32 trouser'),
+              const CustomBox(texts: ['Blue color size 32 trouser']),
               const SizedBox(height: 30),
               const Text(
                 'Shipping Details',
@@ -80,8 +80,8 @@ class _InsideOrderScreenState extends State<InsideOrderScreen> {
               ),
               const SizedBox(height: 10),
               const CustomBox(
-                description:
-                    'No 10/A, Main road, Colombo                                123-456-789',
+                textCount: 2,
+                texts: ['No 10/A, Main road, Colombo', '123-456-789'],
               ),
             ],
           ),
