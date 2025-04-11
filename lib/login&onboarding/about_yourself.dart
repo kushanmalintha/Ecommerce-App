@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/home_page/main_screen.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,6 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                   color: Colors.black,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Montserrat',
                   decoration: TextDecoration.none,
                 ),
               ),
@@ -80,7 +80,6 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
-                  fontFamily: 'Montserrat',
                   decoration: TextDecoration.none,
                 ),
               ),
@@ -103,7 +102,12 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                 text: "Finish",
                 backgroundColor: const Color.fromRGBO(142, 108, 239, 1),
                 textColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainScreen()));
+                },
                 borderRadius: 25.0,
               ),
             ],

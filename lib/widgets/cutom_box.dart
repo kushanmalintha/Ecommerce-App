@@ -15,40 +15,51 @@ class CustomBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey[200]!,
-        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
+            // ignore: deprecated_member_use
+            color: Colors.black.withOpacity(0.05),
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (imagePath.isNotEmpty)
             ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(12),
               child: Image.asset(
                 imagePath,
-                width: 50,
-                height: 50,
+                width: 80,
+                height: 80,
                 fit: BoxFit.cover,
               ),
             ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: List.generate(textCount, (index) {
-                return Text(
-                  texts != null && texts!.length > index ? texts![index] : '',
-                  style: const TextStyle(fontSize: 16),
+                final text =
+                    texts != null && texts!.length > index ? texts![index] : '';
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 6.0),
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      fontSize: index == 0 ? 18 : 14,
+                      fontWeight:
+                          index == 0 ? FontWeight.bold : FontWeight.normal,
+                      color: Colors.black87,
+                    ),
+                  ),
                 );
               }),
             ),

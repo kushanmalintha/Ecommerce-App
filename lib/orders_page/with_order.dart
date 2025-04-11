@@ -1,6 +1,4 @@
-import 'package:ecommerce_app/widgets/category_card.dart';
-import 'package:ecommerce_app/widgets/box_custom_button.dart';
-import 'package:ecommerce_app/widgets/round_custom_button.dart';
+import 'package:ecommerce_app/orders_page/processing.dart';
 import 'package:flutter/material.dart';
 
 class WithOrderScreen extends StatefulWidget {
@@ -10,12 +8,9 @@ class WithOrderScreen extends StatefulWidget {
   State<WithOrderScreen> createState() => _WithOrderScreenState();
 }
 
-class _WithOrderScreenState extends State<WithOrderScreen> {
-  final List<dynamic> orderList = [
-    '#101000', // Order #101
-    '#102000', // Order #102
-    '#103000', // Order #103
-  ];
+class _WithOrderScreenState extends State<WithOrderScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
 
   final List<String> buttonList = [
     'Processing',
@@ -25,84 +20,88 @@ class _WithOrderScreenState extends State<WithOrderScreen> {
     'Canceled'
   ];
 
-  int selectedIndex = -1;
+  final List<Widget> screens = const [
+    ProcessingScreen(),
+    ProcessingScreen(),
+    ProcessingScreen(),
+    ProcessingScreen(),
+    ProcessingScreen(),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: buttonList.length, vsync: this);
+
+    // Listen to animation (for swipe detection)
+    _tabController.animation?.addListener(() {
+      final value = _tabController.animation!.value;
+      final newIndex = value.round();
+
+      if (_tabController.index != newIndex) {
+        setState(() {}); // Rebuild to update the button color
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                RoundCustomButton(
-                  radius: 25,
-                  color: Colors.grey[200]!,
-                  onPressed: () {},
-                ),
-                const Text(
-                  'Orders',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
+            // Custom tab bar
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
                   buttonList.length,
                   (index) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                    child: BoxCustomButton(
-                      fontSize: 12,
-                      text: buttonList[index],
-                      backgroundColor: selectedIndex == index
-                          ? const Color.fromRGBO(142, 108, 239, 1)
-                          : Colors.grey[100]!,
-                      textColor:
-                          selectedIndex == index ? Colors.white : Colors.black,
-                      onPressed: () {
-                        setState(() {
-                          selectedIndex = index;
-                        });
+                    padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        _tabController.animateTo(index);
+                        setState(() {});
                       },
-                      borderRadius: 25,
-                      width: 80.0,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: _tabController.index == index
+                              ? const Color.fromRGBO(142, 108, 239, 1)
+                              : Colors.grey[200],
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Text(
+                          buttonList[index],
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: _tabController.index == index
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            // Swipable views
             Expanded(
-              child: ListView.builder(
-                itemCount: orderList.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: CategoryCard(
-                      title: orderList[index],
-                      imagePath: 'assets/shirt.png',
-                      onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Order #${orderList[index]} selected',
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                },
+              child: TabBarView(
+                controller: _tabController,
+                physics: const BouncingScrollPhysics(),
+                children: screens,
               ),
             ),
           ],

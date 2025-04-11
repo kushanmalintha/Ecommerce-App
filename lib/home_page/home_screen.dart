@@ -1,8 +1,10 @@
+import 'package:ecommerce_app/home_page/search_result.dart';
+import 'package:ecommerce_app/home_page/shop_by_catogory.dart';
+import 'package:ecommerce_app/product_page/cart_full.dart';
 import 'package:ecommerce_app/widgets/custom_search.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_dropdown.dart';
 import 'package:ecommerce_app/widgets/cutom_cloth.dart';
-import 'package:ecommerce_app/widgets/navigation_bar.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -70,7 +71,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   RoundCustomButton(
                     radius: 25,
                     color: const Color.fromRGBO(142, 108, 239, 100),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CartFullScreen()));
+                    },
                     icon: const Icon(Icons.shopping_cart, color: Colors.white),
                   ),
                 ],
@@ -83,6 +89,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 hintTextColor: Colors.grey,
                 borderRadius: 30.0,
                 onChanged: (value) {},
+                onSearchPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SearchResultScreen()));
+                },
               ),
               const SizedBox(height: 10),
               Row(
@@ -101,7 +113,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       text: 'See all',
                       backgroundColor: Colors.white,
                       textColor: Colors.black54,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ShopByCategoryScreen()));
+                      },
                       borderRadius: 25,
                     ),
                   ),
@@ -150,7 +168,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       text: 'See all',
                       backgroundColor: Colors.white,
                       textColor: Colors.black54,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ShopByCategoryScreen()));
+                      },
                       borderRadius: 25,
                     ),
                   ),
@@ -194,7 +218,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       text: 'See all',
                       backgroundColor: Colors.white,
                       textColor: Colors.black54,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ShopByCategoryScreen()));
+                      },
                       borderRadius: 25,
                     ),
                   ),
@@ -225,7 +255,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }

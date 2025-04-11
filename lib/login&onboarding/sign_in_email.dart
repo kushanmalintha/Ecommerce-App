@@ -1,5 +1,8 @@
+import 'package:ecommerce_app/login&onboarding/create_acccount.dart';
+import 'package:ecommerce_app/login&onboarding/sign_in_pwd.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_textfield.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignInEmailScreen extends StatefulWidget {
@@ -38,7 +41,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               fieldColor: Colors.grey[200]!,
               hint: "E-mail Address",
               inputType: TextInputType.emailAddress,
-              radius: 20,
+              radius: 10,
             ),
             const SizedBox(height: 10),
             BoxCustomButton(
@@ -46,25 +49,49 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
               backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
               textColor: Colors.white,
               onPressed: () {
-                // Handle the button press action here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignInPwdScreen()));
               },
               borderRadius: 25.0,
             ),
-            const SizedBox(height: 10),
-            const Row(
+            const SizedBox(height: 15),
+            Row(
               children: [
-                Text(
-                  "Don't have an account? Create one",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
+                RichText(
+                  text: TextSpan(
+                    text: "Don't have an account? ",
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: "Create one",
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CreateAccountScreen()));
+                          },
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 60),
+            const SizedBox(height: 50),
             BoxCustomButton(
               text: "Continue With Apple",
               backgroundColor: Colors.grey[200]!,
@@ -73,6 +100,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                 // Handle the button press action here
               },
               borderRadius: 25.0,
+              icon: Icons.apple,
             ),
             const SizedBox(height: 10),
             BoxCustomButton(
@@ -83,6 +111,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                 // Handle the button press action here
               },
               borderRadius: 25.0,
+              icon: Icons.g_mobiledata,
             ),
             const SizedBox(height: 10),
             BoxCustomButton(
@@ -93,6 +122,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                 // Handle the button press action here
               },
               borderRadius: 25.0,
+              icon: Icons.facebook,
             ),
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/product_page/product_page.dart';
 import 'package:ecommerce_app/widgets/category_card.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _ShopByCategoryScreenState extends State<ShopByCategoryScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const SizedBox(height: 60),
+            const SizedBox(height: 30),
             Container(
               alignment: Alignment.topLeft,
               child: RoundCustomButton(
@@ -46,7 +47,9 @@ class _ShopByCategoryScreenState extends State<ShopByCategoryScreen> {
                   size: 20,
                 ),
                 color: Colors.grey[300]!,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
             const SizedBox(height: 20),
@@ -72,7 +75,12 @@ class _ShopByCategoryScreenState extends State<ShopByCategoryScreen> {
                   child: CategoryCard(
                     imagePath: imagePaths[index],
                     title: titles[index],
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProductScreen()));
+                    },
                   ),
                 );
               }),

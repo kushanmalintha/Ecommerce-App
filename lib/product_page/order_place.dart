@@ -1,5 +1,5 @@
+import 'package:ecommerce_app/home_page/main_screen.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
-import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
 
 class OrderPlaceScreen extends StatefulWidget {
@@ -18,19 +18,14 @@ class _OrderPlaceScreenState extends State<OrderPlaceScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                RoundCustomButton(
-                  radius: 25,
-                  color: Colors.grey[200]!,
-                  onPressed: () {},
-                ),
                 const Text(
                   'Order',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 32,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
@@ -57,7 +52,6 @@ class _OrderPlaceScreenState extends State<OrderPlaceScreen> {
                       color: Colors.black,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat',
                     ),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
@@ -69,11 +63,14 @@ class _OrderPlaceScreenState extends State<OrderPlaceScreen> {
             SizedBox(
               width: 150,
               child: BoxCustomButton(
-                text: "See Order Details",
+                text: "Home Page",
                 backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
                 textColor: Colors.white,
                 onPressed: () {
-                  // Handle the button press action here
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainScreen()));
                 },
                 borderRadius: 25.0,
               ),

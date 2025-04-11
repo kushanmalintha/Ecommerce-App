@@ -34,7 +34,9 @@ class _InsideOrderScreenState extends State<InsideOrderScreen> {
                   RoundCustomButton(
                     radius: 25,
                     color: Colors.grey[200]!,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                   const Text(
                     'Order #101',

@@ -17,7 +17,6 @@ class CustomTextField extends StatefulWidget {
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
 
@@ -27,7 +26,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Card(
       elevation: 0.0,
       color: widget.fieldColor,
-      shape: const Border(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(widget.radius.toDouble()),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: TextField(

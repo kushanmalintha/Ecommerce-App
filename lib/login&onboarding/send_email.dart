@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/login&onboarding/sign_in_email.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,10 @@ class _SendEmailScreenState extends State<SendEmailScreen> {
                 backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
                 textColor: Colors.white,
                 onPressed: () {
-                  // Handle the button press action here
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignInEmailScreen()));
                 },
                 borderRadius: 25.0,
               ),

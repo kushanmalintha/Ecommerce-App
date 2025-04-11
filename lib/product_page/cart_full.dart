@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/product_page/checkout.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/cart_card.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
@@ -30,18 +31,20 @@ class _CartFullScreenState extends State<CartFullScreen> {
                       RoundCustomButton(
                         radius: 25,
                         color: Colors.grey[200]!,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                       const Text(
                         'Cart',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 32,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -139,7 +142,15 @@ class _CartFullScreenState extends State<CartFullScreen> {
                   text: 'Checkout',
                   backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
                   textColor: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    // Navigate to checkout screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CheckoutScreen(),
+                      ),
+                    );
+                  },
                   borderRadius: 20,
                 ),
               ],

@@ -7,9 +7,11 @@ class CustomSearchField extends StatefulWidget {
   final Color hintTextColor;
   final double borderRadius;
   final ValueChanged<String>? onChanged;
+  final VoidCallback onSearchPressed;
 
   const CustomSearchField({
     super.key,
+    required this.onSearchPressed,
     this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
     this.hintText = 'Search...',
@@ -52,8 +54,9 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
         style: TextStyle(color: widget.textColor),
         decoration: InputDecoration(
           prefixIcon: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search, color: Colors.grey)),
+            onPressed: widget.onSearchPressed,
+            icon: const Icon(Icons.search, color: Colors.grey),
+          ),
           suffixIcon: _controller.text.isNotEmpty
               ? IconButton(
                   icon: const Icon(Icons.close, color: Colors.grey),

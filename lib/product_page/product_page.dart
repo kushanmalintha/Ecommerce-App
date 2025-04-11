@@ -67,7 +67,9 @@ class _ProductScreenState extends State<ProductScreen> {
                     RoundCustomButton(
                       radius: 25,
                       color: Colors.grey[200]!,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
                   ],
                 ),
@@ -79,7 +81,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: SizedBox(
-                          width: 200,
+                          width: 150,
                           child: CustomBox(
                             imagePath: imagePaths[index],
                           ),

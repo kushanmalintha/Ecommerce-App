@@ -49,7 +49,9 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                       size: 20,
                     ),
                     color: Colors.grey[300]!,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                   const SizedBox(width: 10),
                   Expanded(
@@ -60,6 +62,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                       hintTextColor: Colors.grey,
                       borderRadius: 30.0,
                       onChanged: (value) {},
+                      onSearchPressed: () {},
                     ),
                   ),
                 ],
