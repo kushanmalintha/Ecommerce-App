@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/login&onboarding/about_yourself.dart';
 import 'package:ecommerce_app/login&onboarding/forgot_pwd.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
@@ -16,7 +17,7 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -27,7 +28,7 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
                 Text(
                   'Sign in',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors.titleText,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
@@ -37,8 +38,8 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
             ),
             const SizedBox(height: 30),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "Password",
               inputType: TextInputType.emailAddress,
               radius: 10,
@@ -46,8 +47,8 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
             const SizedBox(height: 10),
             BoxCustomButton(
               text: "Continue",
-              backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-              textColor: Colors.white,
+              backgroundColor: AppColors.primary,
+              textColor: AppColors.boxCustomButtonText,
               onPressed: () {
                 // Handle continue button press
                 Navigator.push(
@@ -66,7 +67,7 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
                   text: TextSpan(
                     text: "Forgot Password? ",
                     style: const TextStyle(
-                      color: Colors.black,
+                      color: AppColors.text1,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.none,
@@ -75,7 +76,7 @@ class _SignInPwdScreenState extends State<SignInPwdScreen> {
                       TextSpan(
                         text: "Reset",
                         style: const TextStyle(
-                          color: Colors.blue,
+                          color: AppColors.text2,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/widgets/custom_search.dart';
 import 'package:ecommerce_app/widgets/cutom_cloth.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
@@ -31,24 +32,24 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              const SizedBox(height: 60),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   RoundCustomButton(
                     radius: 20,
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back,
-                      color: Colors.black,
+                      color: AppColors.text1,
                       size: 20,
                     ),
-                    color: Colors.grey[300]!,
+                    color: AppColors.customTextFeildFeild,
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -56,10 +57,10 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: CustomSearchField(
-                      textColor: Colors.black,
-                      backgroundColor: Colors.grey[200]!,
+                      textColor: AppColors.text1,
+                      backgroundColor: AppColors.customSearchFieldBackground,
                       hintText: 'Search for products...',
-                      hintTextColor: Colors.grey,
+                      hintTextColor: AppColors.text3,
                       borderRadius: 30.0,
                       onChanged: (value) {},
                       onSearchPressed: () {},
@@ -68,43 +69,45 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 ],
               ),
               const SizedBox(height: 20),
-              const Align(
+              Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   '53 Results found',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.text1,
+                  ),
                 ),
               ),
-              // List of products in rows
               ListView.builder(
-                shrinkWrap:
-                    true, // Ensures that the ListView does not take up infinite space
-                physics:
-                    const NeverScrollableScrollPhysics(), // Prevents nested scrolling
-                itemCount: (titles.length / 2).ceil(), // Number of rows
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: (titles.length / 2).ceil(),
                 itemBuilder: (context, index) {
-                  // For each row,  display two items
                   int firstIndex = index * 2;
                   int secondIndex = firstIndex + 1;
 
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CustomClothBox(
-                          imagePath: imagePaths[firstIndex],
-                          productName: titles[firstIndex],
-                          price: '\$148.00',
-                          onButtonPressed: () {},
-                        ),
-                        if (secondIndex <
-                            titles.length) // Check if there is a second item
-                          CustomClothBox(
-                            imagePath: imagePaths[secondIndex],
-                            productName: titles[secondIndex],
+                        Expanded(
+                          child: CustomClothBox(
+                            imagePath: imagePaths[firstIndex],
+                            productName: titles[firstIndex],
                             price: '\$148.00',
                             onButtonPressed: () {},
+                          ),
+                        ),
+                        if (secondIndex < titles.length)
+                          Expanded(
+                            child: CustomClothBox(
+                              imagePath: imagePaths[secondIndex],
+                              productName: titles[secondIndex],
+                              price: '\$148.00',
+                              onButtonPressed: () {},
+                            ),
                           ),
                       ],
                     ),

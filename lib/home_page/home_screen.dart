@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/home_page/search_result.dart';
 import 'package:ecommerce_app/home_page/shop_by_catogory.dart';
 import 'package:ecommerce_app/product_page/cart_full.dart';
+import 'package:ecommerce_app/product_page/product_page.dart';
 import 'package:ecommerce_app/widgets/custom_search.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_dropdown.dart';
@@ -37,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -49,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   RoundCustomButton(
                     radius: 25,
-                    color: Colors.grey,
+                    color: AppColors.roundCustomButtonBackground,
                     onPressed: () {},
                     image: const AssetImage('assets/face.jpg'),
                   ),
@@ -58,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: CustomDropdown(
                       items: const ['Men', 'Women'],
                       value: selectedGender,
-                      backgroundColor: Colors.grey[200]!,
-                      textColor: Colors.black,
+                      backgroundColor: AppColors.customDropDownBackground,
+                      textColor: AppColors.text1,
                       onChanged: (value) {
                         setState(() {
                           selectedGender = value;
@@ -70,12 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   RoundCustomButton(
                     radius: 25,
-                    color: const Color.fromRGBO(142, 108, 239, 100),
+                    color: AppColors.primary,
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const CartFullScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CartFullScreen(),
+                        ),
+                      );
                     },
                     icon: const Icon(Icons.shopping_cart, color: Colors.white),
                   ),
@@ -83,177 +87,147 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               CustomSearchField(
-                textColor: Colors.black,
-                backgroundColor: Colors.grey[200]!,
+                textColor: AppColors.text1,
+                backgroundColor: AppColors.customSearchFieldBackground,
                 hintText: 'Search for products...',
-                hintTextColor: Colors.grey,
+                hintTextColor: AppColors.text3,
                 borderRadius: 30.0,
                 onChanged: (value) {},
                 onSearchPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SearchResultScreen()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchResultScreen(),
+                    ),
+                  );
                 },
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Categories',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                    ),
+              _sectionHeader('Categories', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ShopByCategoryScreen(),
                   ),
-                  SizedBox(
-                    width: 100,
-                    child: BoxCustomButton(
-                      text: 'See all',
-                      backgroundColor: Colors.white,
-                      textColor: Colors.black54,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const ShopByCategoryScreen()));
-                      },
-                      borderRadius: 25,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              }),
               const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(6, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        children: [
-                          RoundCustomButton(
-                            radius: 35,
-                            color: Colors.grey[200]!,
-                            onPressed: () {},
-                            image: AssetImage(imagePaths[index]),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            titles[index],
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-                ),
-              ),
+              _horizontalCategoryList(),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Top Selling',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                    ),
+              _sectionHeader('Top Selling', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ShopByCategoryScreen(),
                   ),
-                  SizedBox(
-                    width: 100,
-                    child: BoxCustomButton(
-                      text: 'See all',
-                      backgroundColor: Colors.white,
-                      textColor: Colors.black54,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const ShopByCategoryScreen()));
-                      },
-                      borderRadius: 25,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              }),
               const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(6, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        children: [
-                          CustomClothBox(
-                            imagePath: imagePaths[index],
-                            productName: titles[index],
-                            price: "\$148.00",
-                            onButtonPressed: () {},
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-                ),
-              ),
+              _horizontalClothList(),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'New In',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                    ),
+              _sectionHeader('New In', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ShopByCategoryScreen(),
                   ),
-                  SizedBox(
-                    width: 100,
-                    child: BoxCustomButton(
-                      text: 'See all',
-                      backgroundColor: Colors.white,
-                      textColor: Colors.black54,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const ShopByCategoryScreen()));
-                      },
-                      borderRadius: 25,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              }),
               const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(6, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        children: [
-                          CustomClothBox(
-                            imagePath: imagePaths[index],
-                            productName: titles[index],
-                            price: "\$148.00",
-                            onButtonPressed: () {},
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-                ),
-              ),
+              _horizontalClothList(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _sectionHeader(String title, VoidCallback onPressed) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w900,
+            color: AppColors.text1,
+          ),
+        ),
+        SizedBox(
+          width: 100,
+          child: BoxCustomButton(
+            text: 'See all',
+            backgroundColor: AppColors.primary,
+            textColor: AppColors.boxCustomButtonText,
+            onPressed: onPressed,
+            borderRadius: 25,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _horizontalCategoryList() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(6, (index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Column(
+              children: [
+                RoundCustomButton(
+                  radius: 35,
+                  color: AppColors.roundCustomButtonBackground,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchResultScreen(),
+                      ),
+                    );
+                  },
+                  image: AssetImage(imagePaths[index]),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  titles[index],
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.text1,
+                  ),
+                ),
+              ],
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
+  Widget _horizontalClothList() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(6, (index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: CustomClothBox(
+              imagePath: imagePaths[index],
+              productName: titles[index],
+              price: "\$148.00",
+              onButtonPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProductScreen(),
+                  ),
+                );
+              },
+            ),
+          );
+        }),
       ),
     );
   }

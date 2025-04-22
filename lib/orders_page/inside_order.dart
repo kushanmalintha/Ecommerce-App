@@ -2,6 +2,7 @@ import 'package:ecommerce_app/widgets/cutom_box.dart';
 import 'package:ecommerce_app/widgets/order_card.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class InsideOrderScreen extends StatefulWidget {
   const InsideOrderScreen({super.key});
@@ -20,20 +21,20 @@ class _InsideOrderScreenState extends State<InsideOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 25),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RoundCustomButton(
                     radius: 25,
-                    color: Colors.grey[200]!,
+                    color: AppColors.roundCustomButtonBackground,
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -47,7 +48,7 @@ class _InsideOrderScreenState extends State<InsideOrderScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -60,15 +61,16 @@ class _InsideOrderScreenState extends State<InsideOrderScreen> {
                       orderStates: order['orderStates']!,
                       date: order['date']!,
                       displayOrderNo: false,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.check_circle,
-                        color: Color.fromRGBO(142, 108, 239, 1),
+                        color: AppColors.primary,
                       ),
+                      cardColor: AppColors.cartcard,
                     ),
                   );
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               const Text(
                 'Order Description',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

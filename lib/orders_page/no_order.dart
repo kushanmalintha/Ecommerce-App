@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/home_page/shop_by_catogory.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class NoOrderScreen extends StatefulWidget {
   const NoOrderScreen({super.key});
@@ -13,7 +14,7 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -34,7 +35,7 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
                 'No Orders yet.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.text1,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Montserrat',
@@ -45,8 +46,8 @@ class _NoOrderScreenState extends State<NoOrderScreen> {
                 width: 150,
                 child: BoxCustomButton(
                   text: "Explore Categories",
-                  backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-                  textColor: Colors.white,
+                  backgroundColor: AppColors.primary,
+                  textColor: AppColors.boxCustomButtonText,
                   onPressed: () {
                     Navigator.push(
                         context,

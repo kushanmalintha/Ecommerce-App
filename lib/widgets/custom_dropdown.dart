@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+import 'package:ecommerce_app/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatelessWidget {
@@ -34,7 +36,7 @@ class CustomDropdown extends StatelessWidget {
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String?>(
           value: value,
-          icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+          icon: const Icon(Icons.arrow_drop_down, color: AppColors.text1),
           dropdownColor: backgroundColor,
           isExpanded: true,
           hint: Text(

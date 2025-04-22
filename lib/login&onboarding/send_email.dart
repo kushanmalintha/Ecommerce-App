@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/login&onboarding/sign_in_email.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class _SendEmailScreenState extends State<SendEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -36,7 +37,7 @@ class _SendEmailScreenState extends State<SendEmailScreen> {
                     'We Sent you an email to reset your password.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: AppColors.infoText,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Montserrat',
@@ -52,13 +53,15 @@ class _SendEmailScreenState extends State<SendEmailScreen> {
               width: 150,
               child: BoxCustomButton(
                 text: "Return to Login",
-                backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-                textColor: Colors.white,
+                backgroundColor: AppColors.primary,
+                textColor: AppColors.boxCustomButtonText,
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignInEmailScreen()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignInEmailScreen(),
+                    ),
+                  );
                 },
                 borderRadius: 25.0,
               ),

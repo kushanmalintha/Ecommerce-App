@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/login&onboarding/sign_in_email.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_textfield.dart';
@@ -14,7 +15,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -25,7 +26,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 Text(
                   'Create Account',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors.titleText,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
@@ -35,32 +36,32 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ),
             const SizedBox(height: 30),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "First Name",
               inputType: TextInputType.emailAddress,
               radius: 10,
             ),
             const SizedBox(height: 10),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "Last Name",
               inputType: TextInputType.emailAddress,
               radius: 10,
             ),
             const SizedBox(height: 10),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "Email Address",
               inputType: TextInputType.emailAddress,
               radius: 10,
             ),
             const SizedBox(height: 10),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "Password",
               inputType: TextInputType.emailAddress,
               radius: 10,
@@ -68,8 +69,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             const SizedBox(height: 50),
             BoxCustomButton(
               text: "Continue",
-              backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-              textColor: Colors.white,
+              backgroundColor: AppColors.primary,
+              textColor: AppColors.boxCustomButtonText,
               onPressed: () {
                 Navigator.push(
                   context,

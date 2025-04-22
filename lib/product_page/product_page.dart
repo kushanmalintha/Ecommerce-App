@@ -1,8 +1,9 @@
-import 'package:ecommerce_app/widgets/cutom_box.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_dropdown.dart';
+import 'package:ecommerce_app/widgets/cutom_cloth.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:ecommerce_app/widgets/user_card.dart';
+import 'package:ecommerce_app/colors.dart';
 import 'package:flutter/material.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -52,7 +53,7 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -60,13 +61,13 @@ class _ProductScreenState extends State<ProductScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     RoundCustomButton(
                       radius: 25,
-                      color: Colors.grey[200]!,
+                      color: AppColors.roundCustomButtonBackground,
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -79,11 +80,13 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: Row(
                     children: List.generate(imagePaths.length, (index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
                         child: SizedBox(
                           width: 150,
-                          child: CustomBox(
+                          child: CustomClothBox(
                             imagePath: imagePaths[index],
+                            onButtonPressed: () {},
+                            showIconButton: false,
                           ),
                         ),
                       );
@@ -96,6 +99,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: AppColors.titleText,
                   ),
                 ),
                 const Text(
@@ -103,16 +107,15 @@ class _ProductScreenState extends State<ProductScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(142, 108, 239, 100),
+                    color: AppColors.primary,
                   ),
                 ),
-                const SizedBox(height: 20),
                 const SizedBox(height: 20),
                 CustomDropdown(
                   items: const ['Small', 'Medium', 'Large'],
                   value: selectedSize,
-                  backgroundColor: Colors.grey[200]!,
-                  textColor: Colors.black,
+                  backgroundColor: AppColors.customDropDownBackground,
+                  textColor: AppColors.text1,
                   onChanged: (value) {
                     setState(() {
                       selectedSize = value;
@@ -125,8 +128,8 @@ class _ProductScreenState extends State<ProductScreen> {
                 CustomDropdown(
                   items: const ['Red', 'Blue', 'Green'],
                   value: selectedColor,
-                  backgroundColor: Colors.grey[200]!,
-                  textColor: Colors.black,
+                  backgroundColor: AppColors.customDropDownBackground,
+                  textColor: AppColors.text1,
                   onChanged: (value) {
                     setState(() {
                       selectedColor = value;
@@ -139,8 +142,8 @@ class _ProductScreenState extends State<ProductScreen> {
                 CustomDropdown(
                   items: const ['1', '2', '3'],
                   value: selectedQuantity,
-                  backgroundColor: Colors.grey[200]!,
-                  textColor: Colors.black,
+                  backgroundColor: AppColors.customDropDownBackground,
+                  textColor: AppColors.text1,
                   onChanged: (value) {
                     setState(() {
                       selectedQuantity = value;
@@ -150,20 +153,20 @@ class _ProductScreenState extends State<ProductScreen> {
                   hintText: 'Select Quantity',
                 ),
                 const SizedBox(height: 10),
-                const Text(
+                Text(
                   'This stylish shirt is made from high-quality materials and offers a comfortable fit. Perfect for casual outings or formal events, it comes in various sizes and colors to suit your preference.',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey,
+                    color: AppColors.text3,
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Text(
+                Text(
                   '200 Reviews',
                   style: TextStyle(
                     fontSize: 15,
-                    color: Colors.grey,
+                    color: AppColors.text3,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -181,7 +184,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     );
                   }).toList(),
                 ),
-                const SizedBox(height: 80), // Add some space at the bottom
+                const SizedBox(height: 80),
               ],
             ),
           ),
@@ -191,11 +194,11 @@ class _ProductScreenState extends State<ProductScreen> {
             right: 0,
             child: Container(
               padding: const EdgeInsets.all(10.0),
-              color: Colors.white,
+              color: AppColors.screenBackground,
               child: BoxCustomButton(
                 text: 'Add to Cart',
-                backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-                textColor: Colors.white,
+                backgroundColor: AppColors.primary,
+                textColor: AppColors.boxCustomButtonText,
                 onPressed: () {},
                 borderRadius: 20,
               ),

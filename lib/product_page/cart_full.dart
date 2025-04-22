@@ -2,6 +2,7 @@ import 'package:ecommerce_app/product_page/checkout.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/cart_card.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
+import 'package:ecommerce_app/colors.dart';
 import 'package:flutter/material.dart';
 
 class CartFullScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _CartFullScreenState extends State<CartFullScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Column(
         children: [
           Expanded(
@@ -24,13 +25,13 @@ class _CartFullScreenState extends State<CartFullScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       RoundCustomButton(
                         radius: 25,
-                        color: Colors.grey[200]!,
+                        color: AppColors.roundCustomButtonBackground,
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -40,6 +41,7 @@ class _CartFullScreenState extends State<CartFullScreen> {
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w900,
+                          color: AppColors.titleText,
                         ),
                       ),
                     ],
@@ -52,8 +54,8 @@ class _CartFullScreenState extends State<CartFullScreen> {
                         width: 100,
                         child: BoxCustomButton(
                           text: 'Remove All',
-                          backgroundColor: Colors.grey[200]!,
-                          textColor: Colors.black,
+                          backgroundColor: AppColors.boxCustomButtonBackground,
+                          textColor: AppColors.text1,
                           onPressed: () {},
                           borderRadius: 20,
                         ),
@@ -90,60 +92,68 @@ class _CartFullScreenState extends State<CartFullScreen> {
           ),
           Container(
             padding: const EdgeInsets.all(10.0),
-            color: Colors.white,
+            color: AppColors.screenBackground,
             child: Column(
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Subtotal',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: TextStyle(fontSize: 16, color: AppColors.text3),
                     ),
-                    Text(
+                    const Text(
                       '\$200.00',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.text1,
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Shipping Fee',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: TextStyle(fontSize: 16, color: AppColors.text3),
                     ),
-                    Text(
+                    const Text(
                       '\$80.00',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.text1,
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Total',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: TextStyle(fontSize: 16, color: AppColors.text3),
                     ),
-                    Text(
+                    const Text(
                       '\$380.00',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.text1,
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
                 BoxCustomButton(
                   text: 'Checkout',
-                  backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-                  textColor: Colors.white,
+                  backgroundColor: AppColors.primary,
+                  textColor: AppColors.boxCustomButtonText,
                   onPressed: () {
-                    // Navigate to checkout screen
                     Navigator.push(
                       context,
                       MaterialPageRoute(

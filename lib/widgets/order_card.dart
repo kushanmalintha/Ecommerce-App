@@ -1,4 +1,6 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class OrderCard extends StatelessWidget {
   final int orderNo;
@@ -9,15 +11,16 @@ class OrderCard extends StatelessWidget {
   final Icon? icon;
   final bool displayOrderNo;
 
-  const OrderCard(
-      {super.key,
-      this.orderNo = 0,
-      this.orderStates = '',
-      this.date = '',
-      this.onTap,
-      this.cardColor = Colors.white,
-      this.icon,
-      this.displayOrderNo = true});
+  const OrderCard({
+    super.key,
+    this.orderNo = 0,
+    this.orderStates = '',
+    this.date = '',
+    this.onTap,
+    this.icon,
+    this.displayOrderNo = true,
+    required this.cardColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class OrderCard extends StatelessWidget {
                 const Icon(
                   Icons.shopping_cart,
                   size: 30,
-                  color: Color.fromRGBO(142, 108, 239, 1),
+                  color: AppColors.primary,
                 ),
             const SizedBox(width: 16),
             Column(
@@ -55,14 +58,14 @@ class OrderCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: AppColors.text1,
                   ),
                 ),
                 Text(
                   displayOrderNo ? "" : date,
                   style: const TextStyle(
                     fontSize: 12,
-                    color: Colors.black,
+                    color: AppColors.text1,
                   ),
                 ),
               ],

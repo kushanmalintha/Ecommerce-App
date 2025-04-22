@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchField extends StatefulWidget {
@@ -12,10 +13,10 @@ class CustomSearchField extends StatefulWidget {
   const CustomSearchField({
     super.key,
     required this.onSearchPressed,
-    this.textColor = Colors.black,
-    this.backgroundColor = Colors.white,
+    this.textColor = AppColors.text1,
+    this.backgroundColor = AppColors.text4,
     this.hintText = 'Search...',
-    this.hintTextColor = Colors.grey,
+    this.hintTextColor = AppColors.text5,
     this.borderRadius = 25.0,
     this.onChanged,
   });
@@ -55,11 +56,11 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
         decoration: InputDecoration(
           prefixIcon: IconButton(
             onPressed: widget.onSearchPressed,
-            icon: const Icon(Icons.search, color: Colors.grey),
+            icon: const Icon(Icons.search, color: AppColors.text5),
           ),
           suffixIcon: _controller.text.isNotEmpty
               ? IconButton(
-                  icon: const Icon(Icons.close, color: Colors.grey),
+                  icon: const Icon(Icons.close, color: AppColors.text5),
                   onPressed: _clearSearch,
                 )
               : null,

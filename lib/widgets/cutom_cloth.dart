@@ -1,24 +1,25 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class CustomClothBox extends StatefulWidget {
   final String imagePath;
-  final String productName;
-  final String price;
+  final String? productName;
+  final String? price;
   final VoidCallback onButtonPressed;
   final bool showIconButton;
 
   const CustomClothBox({
     super.key,
     required this.imagePath,
-    this.productName = '',
-    this.price = '',
+    this.productName,
+    this.price,
     required this.onButtonPressed,
     this.showIconButton = true,
   });
 
   @override
-  // ignore: library_private_types_in_public_api
-  _CustomClothBoxState createState() => _CustomClothBoxState();
+  State<CustomClothBox> createState() => _CustomClothBoxState();
 }
 
 class _CustomClothBoxState extends State<CustomClothBox> {
@@ -35,69 +36,83 @@ class _CustomClothBoxState extends State<CustomClothBox> {
     return GestureDetector(
       onTap: widget.onButtonPressed,
       child: Container(
-        width: 175,
-        height: 320,
-        padding: const EdgeInsets.all(0),
+        width: 170,
+        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.grey[200]!,
-          borderRadius: BorderRadius.circular(15),
+          color: AppColors.cartcard,
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: const Offset(0, 2),
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
             ),
           ],
         ),
-        child: Stack(
-          clipBehavior: Clip.none,
+        child: Column(
           children: [
-            Column(
+            Stack(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      onPressed: toggleFavorite,
-                      icon: AnimatedSwitcher(
+                ClipRRect(
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(20)),
+                  child: Image.asset(
+                    widget.imagePath,
+                    height: 190,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                if (widget.showIconButton)
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: InkWell(
+                      onTap: toggleFavorite,
+                      child: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 300),
-                        transitionBuilder: (child, animation) {
-                          return ScaleTransition(
-                              scale: animation, child: child);
-                        },
+                        transitionBuilder: (child, animation) =>
+                            ScaleTransition(scale: animation, child: child),
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,
                           key: ValueKey<bool>(isFavorite),
-                          color: isFavorite
-                              ? const Color.fromRGBO(142, 108, 239, 100)
-                              : const Color.fromRGBO(142, 108, 239, 100),
-                          size: 28,
+                          color: AppColors.primary,
+                          size: 26,
                         ),
                       ),
                     ),
-                  ],
-                ),
-                Image.asset(widget.imagePath,
-                    height: 200, width: 150, fit: BoxFit.cover),
-                const SizedBox(height: 10),
-                Text(
-                  widget.productName,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
-                Text(
-                  widget.price,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  if (widget.productName != null)
+                    Text(
+                      widget.productName!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.text1,
+                      ),
+                    ),
+                  if (widget.price != null)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Text(
+                        widget.price!,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
           ],
         ),

@@ -1,4 +1,6 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class CartCard extends StatelessWidget {
   final String imagePath;
@@ -21,11 +23,11 @@ class CartCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.grey[100]!,
+        color: AppColors.cartcard,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: AppColors.text1.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 4,
             offset: const Offset(0, 2),
@@ -34,7 +36,6 @@ class CartCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // First column: Product image
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
@@ -45,49 +46,47 @@ class CartCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          // Second column: Product details
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // First row: Product name and price
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       productName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: AppColors.titleText,
                       ),
                     ),
                     Text(
                       '\$$price',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(142, 108, 239, 1),
+                        color: AppColors.primary,
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 5),
-                // Second row: Size and color
                 Row(
                   children: [
                     Text(
                       'Size: $size',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
-                        color: Colors.black,
+                        color: AppColors.text1,
                       ),
                     ),
                     const SizedBox(width: 10),
                     Text(
                       'Color: $color',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
-                        color: Colors.black,
+                        color: AppColors.text1,
                       ),
                     ),
                   ],

@@ -1,11 +1,11 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
+  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
@@ -39,11 +39,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor:
-          const Color.fromRGBO(142, 108, 239, 100), // Active icon color
-      unselectedItemColor: Colors.grey, // Inactive icon color
+      selectedItemColor: AppColors.primary,
+      unselectedItemColor: AppColors.text5,
       onTap: _onItemTapped,
-      type: BottomNavigationBarType.fixed, // Ensures all items are displayed
+      type: BottomNavigationBarType.fixed,
     );
   }
 }

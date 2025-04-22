@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/product_page/product_page.dart';
+import 'package:ecommerce_app/colors.dart';
+import 'package:ecommerce_app/home_page/search_result.dart';
 import 'package:ecommerce_app/widgets/category_card.dart';
 import 'package:ecommerce_app/widgets/round_custom_button.dart';
 import 'package:flutter/material.dart';
@@ -31,34 +32,34 @@ class _ShopByCategoryScreenState extends State<ShopByCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Container(
               alignment: Alignment.topLeft,
               child: RoundCustomButton(
                 radius: 25,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: AppColors.text1,
                   size: 20,
                 ),
-                color: Colors.grey[300]!,
+                color: AppColors.customTextFeildFeild,
                 onPressed: () {
                   Navigator.pop(context);
                 },
               ),
             ),
             const SizedBox(height: 20),
-            const Row(
+            Row(
               children: [
                 Text(
                   'Search by Category',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors.text1,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Montserrat',
@@ -77,9 +78,11 @@ class _ShopByCategoryScreenState extends State<ShopByCategoryScreen> {
                     title: titles[index],
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ProductScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SearchResultScreen(),
+                        ),
+                      );
                     },
                   ),
                 );

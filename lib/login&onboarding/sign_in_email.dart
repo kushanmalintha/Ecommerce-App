@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/login&onboarding/create_acccount.dart';
 import 'package:ecommerce_app/login&onboarding/sign_in_pwd.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
@@ -16,7 +17,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -27,7 +28,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                 Text(
                   'Sign in',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors.titleText,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
@@ -37,8 +38,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             ),
             const SizedBox(height: 30),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "E-mail Address",
               inputType: TextInputType.emailAddress,
               radius: 10,
@@ -46,8 +47,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             const SizedBox(height: 10),
             BoxCustomButton(
               text: "Continue",
-              backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-              textColor: Colors.white,
+              backgroundColor: AppColors.primary,
+              textColor: AppColors.boxCustomButtonText,
               onPressed: () {
                 Navigator.push(
                     context,
@@ -63,7 +64,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                   text: TextSpan(
                     text: "Don't have an account? ",
                     style: const TextStyle(
-                      color: Colors.black,
+                      color: AppColors.text1,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.none,
@@ -72,7 +73,7 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
                       TextSpan(
                         text: "Create one",
                         style: const TextStyle(
-                          color: Colors.blue,
+                          color: AppColors.text2,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
@@ -94,8 +95,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             const SizedBox(height: 50),
             BoxCustomButton(
               text: "Continue With Apple",
-              backgroundColor: Colors.grey[200]!,
-              textColor: Colors.black,
+              backgroundColor: AppColors.boxCustomButtonBackground,
+              textColor: AppColors.text1,
               onPressed: () {
                 // Handle the button press action here
               },
@@ -105,8 +106,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             const SizedBox(height: 10),
             BoxCustomButton(
               text: "Continue With Google",
-              backgroundColor: Colors.grey[200]!,
-              textColor: Colors.black,
+              backgroundColor: AppColors.boxCustomButtonBackground,
+              textColor: AppColors.text1,
               onPressed: () {
                 // Handle the button press action here
               },
@@ -116,8 +117,8 @@ class _SignInEmailScreenState extends State<SignInEmailScreen> {
             const SizedBox(height: 10),
             BoxCustomButton(
               text: "Continue With Facebook",
-              backgroundColor: Colors.grey[200]!,
-              textColor: Colors.black,
+              backgroundColor: AppColors.boxCustomButtonBackground,
+              textColor: AppColors.text1,
               onPressed: () {
                 // Handle the button press action here
               },

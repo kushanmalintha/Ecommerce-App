@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/login&onboarding/send_email.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_textfield.dart';
@@ -14,7 +15,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -25,7 +26,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 Text(
                   'Forgot Password',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors.titleText,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
@@ -35,8 +36,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
             const SizedBox(height: 30),
             CustomTextField(
-              baseColor: Colors.grey,
-              fieldColor: Colors.grey[200]!,
+              baseColor: AppColors.customTextFeildBase,
+              fieldColor: AppColors.customTextFeildFeild,
               hint: "Enter Email Address",
               inputType: TextInputType.emailAddress,
               radius: 10,
@@ -44,17 +45,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             const SizedBox(height: 20),
             BoxCustomButton(
               text: "Continue",
-              backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
-              textColor: Colors.white,
+              backgroundColor: AppColors.primary,
+              textColor: AppColors.boxCustomButtonText,
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SendEmailScreen()));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SendEmailScreen(),
+                  ),
+                );
               },
               borderRadius: 25.0,
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),

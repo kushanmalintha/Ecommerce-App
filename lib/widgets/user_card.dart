@@ -1,4 +1,6 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class UserCard extends StatelessWidget {
   final String imagePath;
@@ -21,15 +23,15 @@ class UserCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.screenBackground,
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
-          color: Colors.grey,
+          color: AppColors.customTextFeildBase,
           width: 2.0,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: AppColors.text1.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 4,
             offset: const Offset(0, 2),
@@ -57,7 +59,7 @@ class UserCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: AppColors.text1,
                   ),
                 ),
               ),
@@ -66,7 +68,7 @@ class UserCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(142, 108, 239, 100),
+                  color: AppColors.primary,
                 ),
               ),
             ],
@@ -76,7 +78,7 @@ class UserCard extends StatelessWidget {
             ratingDescription,
             style: const TextStyle(
               fontSize: 14,
-              color: Colors.grey,
+              color: AppColors.text5,
             ),
           ),
           const SizedBox(height: 10),
@@ -84,7 +86,7 @@ class UserCard extends StatelessWidget {
             '$daysAgo days ago',
             style: const TextStyle(
               fontSize: 12,
-              color: Colors.black,
+              color: AppColors.text1,
             ),
           ),
         ],

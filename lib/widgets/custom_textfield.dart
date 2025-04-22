@@ -17,7 +17,7 @@ class CustomTextField extends StatefulWidget {
   });
 
   @override
-  _CustomTextFieldState createState() => _CustomTextFieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
@@ -36,7 +36,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
           decoration: InputDecoration(
             hintStyle: TextStyle(
               color: widget.baseColor,
-              fontFamily: "Montserrat",
               fontWeight: FontWeight.bold,
             ),
             border: InputBorder.none,

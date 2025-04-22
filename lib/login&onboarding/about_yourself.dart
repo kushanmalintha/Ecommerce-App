@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/home_page/main_screen.dart';
 import 'package:ecommerce_app/widgets/box_custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_dropdown.dart';
@@ -16,7 +17,7 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -27,7 +28,7 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
               const Text(
                 'Tell us About Yourself',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.titleText,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
@@ -37,35 +38,34 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
               const Text(
                 'Who do you shop for?',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.text1,
                   fontSize: 18,
-                  fontFamily: 'Montserrat',
                   decoration: TextDecoration.none,
                 ),
               ),
               const SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
                     width: 150,
                     child: BoxCustomButton(
                       text: "Men",
-                      backgroundColor: const Color.fromRGBO(142, 108, 239, 1),
-                      textColor: Colors.white,
+                      backgroundColor: AppColors.primary,
+                      textColor: AppColors.boxCustomButtonText,
                       onPressed: () {
                         // Handle Men button press
                       },
                       borderRadius: 25.0,
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 10),
                   SizedBox(
                     width: 150,
                     child: BoxCustomButton(
                       text: "Women",
-                      backgroundColor: Colors.grey[200]!,
-                      textColor: Colors.black,
+                      backgroundColor: AppColors.boxCustomButtonBackground,
+                      textColor: AppColors.text1,
                       onPressed: () {
                         // Handle Women button press
                       },
@@ -78,7 +78,7 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
               const Text(
                 'How Old are you?',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.text1,
                   fontSize: 18,
                   decoration: TextDecoration.none,
                 ),
@@ -87,8 +87,8 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
               CustomDropdown(
                 items: const ['18 - 25', '25 - 35', '35 - more'],
                 value: selectedAge,
-                backgroundColor: Colors.grey[200]!,
-                textColor: Colors.black,
+                backgroundColor: AppColors.customDropDownBackground,
+                textColor: AppColors.text1,
                 hintText: 'Select Age Range',
                 onChanged: (value) {
                   setState(() {
@@ -97,11 +97,11 @@ class _AboutYourselfScreenState extends State<AboutYourselfScreen> {
                 },
                 borderRadius: 25.0,
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.4),
+              const SizedBox(height: 50),
               BoxCustomButton(
                 text: "Finish",
-                backgroundColor: const Color.fromRGBO(142, 108, 239, 1),
-                textColor: Colors.white,
+                backgroundColor: AppColors.primary,
+                textColor: AppColors.boxCustomButtonText,
                 onPressed: () {
                   Navigator.push(
                       context,

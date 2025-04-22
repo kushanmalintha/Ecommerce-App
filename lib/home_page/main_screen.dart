@@ -1,7 +1,8 @@
+import 'package:ecommerce_app/colors.dart';
 import 'package:ecommerce_app/home_page/home_screen.dart';
 import 'package:ecommerce_app/notification_page/with_notification.dart';
-import 'package:ecommerce_app/orders_page/no_order.dart';
-import 'package:ecommerce_app/orders_page/with_order.dart';
+import 'package:ecommerce_app/orders_page/order_page.dart';
+import 'package:ecommerce_app/settings_page/settings.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,11 +19,9 @@ class _MainScreenState extends State<MainScreen>
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    // NoNotificationScreen(),
     WithNotificationScreen(),
-    // NoOrderScreen(),
     WithOrderScreen(),
-    NoOrderScreen(),
+    SettingsScreen(),
   ];
 
   final List<String> _titles = ['Home', 'Notification', 'Order', 'User'];
@@ -56,12 +55,15 @@ class _MainScreenState extends State<MainScreen>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(_titles[_currentIndex]),
-        titleTextStyle: const TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
+        title: Text(
+          _titles[_currentIndex],
+          style: const TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: AppColors.appBarTitleText,
+          ),
         ),
-        backgroundColor: const Color.fromRGBO(142, 108, 239, 100),
+        backgroundColor: AppColors.primary,
       ),
       body: TabBarView(
         controller: _tabController,
@@ -71,8 +73,8 @@ class _MainScreenState extends State<MainScreen>
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
-        selectedItemColor: const Color.fromRGBO(142, 108, 239, 100),
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.text3,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(

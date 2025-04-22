@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/orders_page/inside_order.dart';
 import 'package:ecommerce_app/widgets/category_card.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class ProcessingScreen extends StatefulWidget {
   const ProcessingScreen({super.key});
@@ -21,7 +22,7 @@ class _ProcessingScreenState extends State<ProcessingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

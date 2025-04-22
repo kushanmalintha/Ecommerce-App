@@ -1,8 +1,10 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class NotificationCard extends StatelessWidget {
   final String notification;
-  final bool isRead; // Track if the notification has been read
+  final bool isRead;
   final VoidCallback? onTap;
   final Color cardColor;
 
@@ -11,7 +13,7 @@ class NotificationCard extends StatelessWidget {
     required this.notification,
     this.isRead = false,
     this.onTap,
-    this.cardColor = Colors.white,
+    required this.cardColor,
   });
 
   @override
@@ -25,7 +27,7 @@ class NotificationCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: AppColors.text1.withOpacity(0.1),
               spreadRadius: 1,
               blurRadius: 4,
               offset: const Offset(0, 2),
@@ -38,7 +40,7 @@ class NotificationCard extends StatelessWidget {
             Icon(
               isRead ? Icons.notifications : Icons.notifications_active,
               size: 20,
-              color: const Color.fromRGBO(142, 108, 239, 100),
+              color: AppColors.primary,
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -46,8 +48,7 @@ class NotificationCard extends StatelessWidget {
                 notification,
                 style: const TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
-                  fontFamily: 'Montserrat',
+                  color: AppColors.text1,
                 ),
               ),
             ),

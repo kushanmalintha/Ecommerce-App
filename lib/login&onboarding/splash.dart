@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -27,8 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:
-          const BoxDecoration(color: Color.fromRGBO(142, 108, 239, 100)),
+      decoration: const BoxDecoration(color: AppColors.primary),
       child: Center(
         child: AnimatedOpacity(
           opacity: _opacity,
@@ -36,8 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: const Text(
             "C l o t",
             style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Montserrat',
+              color: AppColors.text4,
               decoration: TextDecoration.none,
               fontSize: 50,
             ),

@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/widgets/notification_card.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/colors.dart';
 
 class WithNotificationScreen extends StatefulWidget {
   const WithNotificationScreen({super.key});
@@ -19,7 +20,7 @@ class _WithNotificationScreenState extends State<WithNotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.screenBackground,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -34,6 +35,7 @@ class _WithNotificationScreenState extends State<WithNotificationScreen> {
                     child: NotificationCard(
                       notification: notificationList[index]['text'],
                       isRead: notificationList[index]['isRead'],
+                      cardColor: AppColors.cartcard,
                       onTap: () {
                         setState(() {
                           notificationList[index]['isRead'] =
